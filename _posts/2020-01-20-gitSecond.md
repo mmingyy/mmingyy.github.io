@@ -74,127 +74,75 @@ nothing added to commit but untracked files present
 작업트리에 파일이 생김
 현재 상황은 위 그림과 같이 작업트리에 filename.txt가 생겼습니다.
 
-- 스테이징(Staging)
-  작업트리에 있는 파일을 스테이지로 올리는 과정을 스테이징 이라고 합니다.
-  
+- 스테이징 후 작업트리에 파일이 생성되었을 때
+
+우선 스테이징을 해보겠습니다.
+  스테이징(Staging)
+  : 작업트리에 있는 파일을 스테이지로 올리는 과정
   $ git add 파일명
 
-※ warning: LF will be replaced by CRLF in filename.txt.
+  ※ 스테이징 시 다음의 경고가 뜰 때
+  warning: LF will be replaced by CRLF in filename.txt.
 
-라는 경고가 뜹니다.
-
-Git Bash에서 리눅스를 기반으로 합니다. 이 경고는 윈도우의 줄바꿈 문자(CR LF)와 리눅스의 줄바꿈 문자(LF)가 다르기 때문에 발생합니다. (맥은 LF이기 때문에 발생하지 않습니다.)
-
-LF가 CRLF로 대체된다고 하네요. (책에서는 반대로 말하는데 뭐가 맞는건진 모르겠어요)
-
+이 경고는 윈도우의 줄바꿈 문자(CR LF)와 리눅스의 줄바꿈 문자(LF)가 다르기 때문에 발생합니다.(맥은 LF이기 때문에 발생하지 않습니다.)
+Git Bash는 리눅스 기반이고 우리는 윈도의 기반의 Enter를 입력했기 때문에 경고가 발생합니다.
 하지만 우리가 해야할 건 없습니다!
 
-
-작업트리에 파일이 생성되었을 때
+스테이징 후 깃의 상태
 Changes to be committed:
-
    new file: filename.txt
-
 새 파일인 filename.txt를 커밋할 준비가 되었다.
-
 (취소하려면 git rm 명령어 이용)
 
+- 커밋(Commit) 후 git 상태
+   
+ 커밋은 다음의 명령어로 실행합니다.
+ $ git commit
 
-Staging
-스테이징을 그림으로 나타내면 위와 같다.
-
- 
-
-  - 커밋(Commit)
-
-   $ git commit
-
-
-git commit
 이때, 커밋에 메시지를 넣고 싶다면
-
 $ git commit -m "메시지내용" 이렇게 입력합니다.
 
 결과창에 1 file changed, 1 insertion이라고 표시됩니다.
-
 파일 1개가 변경되었고 1개의 내용이 추가되었다는 내용입니다.
 
-
-git 상태
 이 때의 git 상태를 보면 nothing to commit, working tree clean 입니다.
-
 즉 commit 할 것이 없고 작업트리도 수정할 것 없이 깨끗하다라는 뜻 입니다.
 
-
-commit
 커밋을 하면 스테이지에 있던 filename.txt의 버전이 저장소에 생성됩니다.
 
- 
-
+버전을 생성한 후 저장소에 저장된 버전을 확인해보겠습니다.
 $ git log
-
-저장소에 저장된 버전 확인
-
-
-git log
 git log를 하면 first_message라고 입력했던 커밋을 통해 버전이 만들어졌다는 것을 알 수 있습니다.
 
- 
-
 $ git log --stat
-
-
-git log --stat
 git log 뒤에 --stat을 붙이면 커밋 관련 파일이 표시됩니다.
 
-filename.txt | 1 + 이라는 메시지를 통해 filename.txt파일이 커밋되었음을 알 수 있습니다.
-
- 
-
 $ git commit -am
-
 commit 뒤에 -am을 붙이면 스테이징과 커밋을 한 번에 처리합니다.
-
 메시지를 붙이고 싶다면 $ git commit -am "메시지내용" 를 입력하면 됩니다.
 
  
-
 4) 파일의 상태
-
   - tracked & untracked
-
    tracked : 한 번 이라도 커밋 된 파일
 
     깃은 한 번이라도 커밋 된 파일의 수정 여부를 계속 추적(track)합니다.
-
     이런 파일은 수정 후 git status를 확인하면 modified: 라고 표시됩니다.
-
- 
 
    untracked : 한 번도 커밋되지 않은 파일
 
     이 파일의 경우 untracked files: 라고 표시 됩니다.
 
- 
 
 5) 작업취소
 
 $ git checkout -- filename.txt
-
 작업 트리에서 작업을 되돌리는 명령어 입니다. checkout으로 되돌린 내용은 복구할 수 없습니다.
 
- 
-
 $ git reset HEAD filename.txt
-
 스테이징을 취소하는 명령어 입니다. 뒤에 파일명(filename.txt)을 입력하지 않으면
-
 모든 파일의 스테이징을 취소합니다.
 
- 
-
 $ git reset HEAD^
-
 가장 마지막에 한 커밋을 취소합니다. 동시에 스테이징도 취소되고 작업트리에만 남게 됩니다.
-
 최근 2개의 커밋을 취소하려면 $ git reset HEAD~2 를 입력하면 됩니다.
