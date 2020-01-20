@@ -36,8 +36,8 @@ CH02. 깃으로 버전 관리하기
 2) 작업트리, 스테이지, 저장소
 
 작업 트리, 스테이지, 저장소에 대한 개념을 그림으로 나타내면 다음과 같습니다.
-![git directory](./images/ch02/git_directory.png)
 
+![git directory](./_posts/images_0120/git_directory.png)
 
 작업트리 : 파일 수정, 저장을 하는 디렉터리
 스테이지 : 버전으로 만들 파일이 대기하는 곳
