@@ -74,19 +74,12 @@ nothing added to commit but untracked files present
 작업트리에 파일이 생김
 현재 상황은 위 그림과 같이 작업트리에 filename.txt가 생겼습니다.
 
- 
-
-  - 스테이징(Staging)
-
+- 스테이징(Staging)
   작업트리에 있는 파일을 스테이지로 올리는 과정을 스테이징 이라고 합니다.
-
- 
-
+  
   $ git add 파일명
 
-
-git add로 스테이징 하기
-warning: LF will be replaced by CRLF in filename.txt.
+※ warning: LF will be replaced by CRLF in filename.txt.
 
 라는 경고가 뜹니다.
 
