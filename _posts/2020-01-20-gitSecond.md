@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "[Do it 깃] CH02"
-date:   2019-03-23 21:03:36 +0530
-categories: Javascript NodeJS
+date:   2020-01-20
+categories: Do_it_Git
 ---
 깃과 깃허브를 공부하기 위해 Do it! 깃&깃허브 책을 보고 있습니다!
 (https://book.naver.com/bookdb/book_detail.nhn?bid=15910099)
