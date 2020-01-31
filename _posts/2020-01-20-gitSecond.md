@@ -17,7 +17,7 @@ CH02. 깃으로 버전 관리하기
 우선 버전관리를 위해서는 버전을 저장할 수 있는 저장소를 만들어야 합니다.
 
 1) 버전관리를 위한 준비
-  $ mkdir git-storage
+```  $ mkdir git-storage```
      : 깃 저장소를 만들 디렉터리 생성
 
   $ cd git-storage
