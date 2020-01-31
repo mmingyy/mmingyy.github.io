@@ -17,21 +17,27 @@ CH02. 깃으로 버전 관리하기
 우선 버전관리를 위해서는 버전을 저장할 수 있는 저장소를 만들어야 합니다.
 
 1) 버전관리를 위한 준비
-```  $ mkdir git-storage```
-     : 깃 저장소를 만들 디렉터리 생성
+```
+$ mkdir git-storage
+```
+깃 저장소를 만들 디렉터리 생성
 
-  $ cd git-storage
-     : 만든 디렉터리(git-storage)로 이동
+```
+$ cd git-storage
+```
+만든 디렉터리(git-storage)로 이동
 
-  $ git init
-     : 깃을 이용할 수 있게끔 디렉터리 초기화
+```
+$ git init
+```
+깃을 이용할 수 있게끔 디렉터리 초기화
 
-  $ ls -la
-     : 상세정보(l), 숨김파일(a) 표시
-      git init 이후에 .git/ 디렉터리가 생성된 것을 볼 수 있습니다. 이 디렉터리가 바로 '저장소(repository)' 입니다.
-
+```
+$ ls -la
+```
+상세정보(l), 숨김파일(a) 표시
+git init 이후에 .git/ 디렉터리가 생성된 것을 볼 수 있습니다. 이 디렉터리가 바로 '저장소(repository)' 입니다.
 이렇게 저장소를 만든 디렉터리에서 파일의 버전관리를 할 수 있습니다.
-
 
 2) 작업트리, 스테이지, 저장소
 
@@ -50,8 +56,9 @@ git commit 을 하면 스테이지에 있는 a, e, f가 커밋됩니다.
 저장소로 커밋된 a, e, f는 버전으로 만들어집니다.
 
 3) 깃의 상태
-  $ git status
-
+```
+$ git status
+```
 - 작업트리가 비어있을 때
 On branch master : master 브랜치에 있습니다. (CH03에 브랜치에 대한 설명이 있습니다.)
 No commits yet : 아직 커밋한 파일 이 없습니다.
@@ -59,10 +66,12 @@ nothing to commit : 커밋 할 파일이 없습니다.
 
 - 작업트리에 파일 생성
  이번에는 작업트리인 git-storage(위에서 만든 디렉터리)에 filename.txt를 만들어 보겠습니다.
-  $ vim filename.txt
-  화면이 바뀌면 키보드의 ' I '나 ' A '를 눌러 --끼워넣기--모드로 바꾼 후 내용을 입력합니다.
+ ```
+ $ vim filename.txt
+ ```
+ 화면이 바뀌면 키보드의 ' I '나 ' A '를 눌러 --끼워넣기--모드로 바꾼 후 내용을 입력합니다.
 
-  내용 입력 후 'Esc'키를 눌러 ex모드로 변환한 후 ' :wq '를 입력해 저장종료합니다. (기억안나면 CH01 복습!!)
+ 내용 입력 후 'Esc'키를 눌러 ex모드로 변환한 후 ' :wq '를 입력해 저장종료합니다. (기억안나면 CH01 복습!!)
 
 On branch master
 No commits yet
@@ -79,8 +88,9 @@ nothing added to commit but untracked files present
 우선 스테이징을 해보겠습니다.
   스테이징(Staging)
   : 작업트리에 있는 파일을 스테이지로 올리는 과정
+  ```
   $ git add 파일명
-
+  ```
   ※ 스테이징 시 다음의 경고가 뜰 때
   warning: LF will be replaced by CRLF in filename.txt.
 
@@ -97,10 +107,11 @@ Changes to be committed:
 - 커밋(Commit) 후 git 상태
    
  커밋은 다음의 명령어로 실행합니다.
+ ```
  $ git commit
-
+ ```
 이때, 커밋에 메시지를 넣고 싶다면
-$ git commit -m "메시지내용" 이렇게 입력합니다.
+```$ git commit -m "메시지내용" ```이렇게 입력합니다.
 
 결과창에 1 file changed, 1 insertion이라고 표시됩니다.
 파일 1개가 변경되었고 1개의 내용이 추가되었다는 내용입니다.
@@ -111,38 +122,50 @@ $ git commit -m "메시지내용" 이렇게 입력합니다.
 커밋을 하면 스테이지에 있던 filename.txt의 버전이 저장소에 생성됩니다.
 
 버전을 생성한 후 저장소에 저장된 버전을 확인해보겠습니다.
+```
 $ git log
+```
 git log를 하면 first_message라고 입력했던 커밋을 통해 버전이 만들어졌다는 것을 알 수 있습니다.
 
+```
 $ git log --stat
+```
 git log 뒤에 --stat을 붙이면 커밋 관련 파일이 표시됩니다.
 
+```
 $ git commit -am
+```
 commit 뒤에 -am을 붙이면 스테이징과 커밋을 한 번에 처리합니다.
 메시지를 붙이고 싶다면 $ git commit -am "메시지내용" 를 입력하면 됩니다.
 
  
 4) 파일의 상태
   - tracked & untracked
+  ```
    tracked : 한 번 이라도 커밋 된 파일
-
+  ```
     깃은 한 번이라도 커밋 된 파일의 수정 여부를 계속 추적(track)합니다.
     이런 파일은 수정 후 git status를 확인하면 modified: 라고 표시됩니다.
-
+  ```
    untracked : 한 번도 커밋되지 않은 파일
-
+  ```
     이 파일의 경우 untracked files: 라고 표시 됩니다.
 
 
 5) 작업취소
-
+```
 $ git checkout -- filename.txt
+```
 작업 트리에서 작업을 되돌리는 명령어 입니다. checkout으로 되돌린 내용은 복구할 수 없습니다.
 
+```
 $ git reset HEAD filename.txt
+```
 스테이징을 취소하는 명령어 입니다. 뒤에 파일명(filename.txt)을 입력하지 않으면
 모든 파일의 스테이징을 취소합니다.
 
+```
 $ git reset HEAD^
+```
 가장 마지막에 한 커밋을 취소합니다. 동시에 스테이징도 취소되고 작업트리에만 남게 됩니다.
 최근 2개의 커밋을 취소하려면 $ git reset HEAD~2 를 입력하면 됩니다.
