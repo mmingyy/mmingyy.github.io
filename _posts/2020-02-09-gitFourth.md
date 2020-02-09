@@ -48,6 +48,6 @@ $ ssh-keygen
 
 자세한 내용은 하단의 블로그름 참고해주세요 :}
 
-https://mminky.tistory.com/8
+<https://mminky.tistory.com/8>
 
 
